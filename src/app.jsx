@@ -1,29 +1,18 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
-import './app.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { ThemeProvider, createTheme } from '@arcblock/ux/lib/Theme';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { createAuthServiceSessionContext } from '@arcblock/did-connect/lib/Session';
 import Home from './pages/home';
-import About from './pages/about';
 
-function App() {
+const { SessionProvider } = createAuthServiceSessionContext();
+
+const theme = createTheme();
+export default function App() {
   return (
-    <div className="app">
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </div>
-  );
-}
-
-export default function WrappedApp() {
-  // While the blocklet is deploy to a sub path, this will be work properly.
-  const basename = window?.blocklet?.prefix || '/';
-
-  return (
-    <Router basename={basename}>
-      <App />
-    </Router>
+    <ThemeProvider theme={theme}>
+      <SessionProvider>
+        <Home />
+      </SessionProvider>
+    </ThemeProvider>
   );
 }

@@ -1,0 +1,82 @@
+div {
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  background: #f6f6f6;
+  padding: 20px;
+
+  .card {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: white;
+    font-size: 16px;
+    color: #666;
+    padding-left: 100px;
+    padding-top: 50px;
+    @media screen and (max-width: 768px) {
+      padding-left: 20px;
+      padding-top: 50px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .option {
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+
+      .loading {
+        border: 2px solid #f3f3f3; /* Light grey */
+        border-top: 2px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        animation: spin 1s linear infinite;
+      }
+
+      button {
+        width: 80px;
+        height: 30px;
+        background: #037cf4;
+        border: none;
+        color: white;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+          background: #013568;
+        }
+
+        &.cancel {
+          background: #f6f6f6;
+          color: #666;
+          margin-left: 15px;
+
+          &:hover {
+            background: #e6e6e6;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(350deg);
+  }
+}

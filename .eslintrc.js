@@ -4,4 +4,8 @@ module.exports = {
   globals: {
     logger: true,
   },
+  rules: {
+    'react/prop-types': 'off',
+    'unicorn/filename-case': 'off',
+  },
 };

@@ -1,0 +1,78 @@
+.profile {
+  .avatar,
+  .username,
+  .email,
+  .phone,
+  .role {
+    display: flex;
+    margin-top: 20px;
+    height: 30px;
+
+    & > div:first-child {
+      width: 100px;
+      text-align: left;
+    }
+
+    & > div:last-child {
+      width: 300px;
+      text-align: left;
+      color: #333;
+    }
+
+    @media screen and (max-width: 768px) {
+      & > div:first-child {
+        width: 20%;
+      }
+
+      & > div:last-child {
+        width: 70%;
+      }
+    }
+
+    input {
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+
+  .avatar {
+    height: 100px;
+    align-items: center;
+
+    div {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .upload {
+      border: 1px dashed #999;
+    }
+
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+  }
+}

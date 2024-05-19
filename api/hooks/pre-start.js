@@ -7,6 +7,8 @@ const env = require('../libs/env');
 const logger = require('../libs/logger');
 const { wallet } = require('../libs/auth');
 const { name } = require('../../package.json');
+const sequelize = require('../../data/database');
+const User = require('../../data/User');
 
 const ensureAccountDeclared = async () => {
   if (env.isComponent) return;
@@ -25,6 +27,8 @@ const ensureAccountDeclared = async () => {
 (async () => {
   try {
     await ensureAccountDeclared();
+    await sequelize.sync({ force: true });
+    await User.sync({ force: true });
     process.exit(0);
   } catch (err) {
     logger.error(`${name} pre-start error`, err.message);
