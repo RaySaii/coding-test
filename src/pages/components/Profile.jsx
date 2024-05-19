@@ -64,10 +64,10 @@ function Profile(props, ref) {
       return 'This field is required';
     }
     if (rules.minLength && value.length < rules.minLength) {
-      return `Name must be at least ${rules[key].minLength} characters`;
+      return `Name must be at least ${rules.minLength} characters`;
     }
     if (rules.maxLength && value.length > rules.maxLength) {
-      return `Name must be less than ${rules[key].maxLength} characters`;
+      return `Name must be less than ${rules.maxLength} characters`;
     }
     if (rules.reg && !rules.reg[0].test(value)) {
       return rules.reg[1];
